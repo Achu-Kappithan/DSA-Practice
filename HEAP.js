@@ -40,6 +40,7 @@ class heap {
 
     remove(){
         if(this.heap.length == 0 ) return 
+        if(this.heap.length == 1) return this.heap.pop()
 
         let min = this.heap[0]
         this.heap[0] = this.heap.pop()
@@ -68,6 +69,25 @@ class heap {
         }
     }
 
+    convertion(arr){
+        this.heap = arr;
+        let n = arr.length
+
+        for(let i = Math.floor((n/2)-1);i>=0; i--){
+            this.bubbledown(i)
+        }
+        return this.heap
+    }
+
+    sort(){
+        let sort =[]
+        while(this.heap.length){
+            sort.push(this.remove())
+        }
+        this.heap = sort
+    }
+
+
 }
 
 
@@ -76,4 +96,6 @@ myheap.insert(80)
 myheap.insert(40)
 myheap.insert(10)
 myheap.insert(90)
+myheap.convertion([8,6,4,9,7,3,2,1])
+myheap.sort()
 console.log(myheap)
