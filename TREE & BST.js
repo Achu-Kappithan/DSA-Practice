@@ -256,7 +256,7 @@ class bst {
     
     is_bst(root,min = -Infinity , max = Infinity){
         if(!root) return true
-        if(min>= root.left || max<= root.right){
+        if(min>= root.value || max<= root.value){
             return false
         }
         return this.is_bst(root.left,min,root.value) &&
@@ -409,6 +409,21 @@ class bst {
         inorder(node)
         return result
     }
+
+    //======================================== LCA =======================================================
+
+    findlca(p,q,root = this.root){
+        while(root){
+            if(p < root.value && q < root.value){
+                root = root.left
+            }else if(p > root.value && root.value < q){
+                root = root.right
+            }else{
+                return root.value
+            }
+        }
+        return null
+    }
 }
 
 let mybst = new bst ()
@@ -430,4 +445,5 @@ console.log(mybst)
 console.log(mybst.hight())
 console.log(mybst.kth_small(2))
 console.log(mybst.kth_large(2))
+console.log(mybst.findlca(30,80))
 
