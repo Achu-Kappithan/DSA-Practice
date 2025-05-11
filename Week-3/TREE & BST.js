@@ -414,11 +414,11 @@ class bst {
 
     findlca(p,q,root = this.root){
         while(root){
-            if(p < root.value && q < root.value){
+            if (p < root.value && q < root.value){
                 root = root.left
-            }else if(p > root.value && root.value < q){
+            } else if (p > root.value && root.value < q){
                 root = root.right
-            }else{
+            } else {
                 return root.value
             }
         }
