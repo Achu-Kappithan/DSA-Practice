@@ -219,6 +219,50 @@ addbeforespecificvalue(element,value){
     
 }
 
+// =====================  Swapped first and last Element Using Stack  ========================
+
+swappedfistandlast(){
+    if(this.size ==0){
+        return "list is empty"
+    }
+    let stack = []
+    let curr = this.head
+    let prev = null
+    while(curr){
+        stack.push(curr.value)
+        prev = curr
+        curr = curr.next
+    }
+    prev.value = this.head.value
+    let newhead = stack.pop()
+    this.head.value= newhead
+}
+
+//================================  Reverse LinkedList Using Stack  =========================================
+
+ReverseusingStack(){
+    if(this.size == 0){
+        return "List is empty"
+    }
+    let stack = []
+    let curr = this.head
+
+    while(curr){
+        stack.push(curr)
+        curr = curr.next
+    }
+    
+    let newhead = stack.pop()
+    this.head = newhead
+    curr = this.head
+
+    while(stack.length){
+        curr.next = stack.pop()
+        curr = curr.next
+    }
+    curr.next = null
+}
+
 }
 
 
@@ -239,6 +283,9 @@ a.display();
 console.log(a.removeMid())
 a.addafterspecficvalue(10,70)
 a.addbeforespecificvalue(100,90)
+a.display()
+// a.swappedfistandlast()
+a.ReverseusingStack()
 a.display()
 
 // console.log(a);
